@@ -49,23 +49,23 @@ To validate the tool against non-simulated, hazardous data, I developed a custom
 The tool successfully identified and classified real-world "Restricted Areas" (> 25 µSv/hr) amidst environmental background noise.
 
 
-![Fukushima Validation Map](./result/radiation_zone_map.png)
+![Fukushima Validation Map](./test/radiation_map.png)
 
 
 **Key Findings:**
 *   **Max Detected Dose:** ~32.07 µSv/hr (Correctly classified as 🔴 Restricted).
 *   **Pattern Recognition:** Algorithm correctly visualized the linear contamination path along the roadway.
 
-[**View the Raw Validation Data (CSV)**](./result/real_fukushima_route6.csv)
+[**View the Raw Validation Data (CSV)**](./test/fukushima_route6.csv)
 
 ---
 
 ## 📊 Sample Output Examples
 
 ### 1. Radiation Zone Map (Simulated Beamline)
-![Zone Map Example](./examples/zone_map_example.png)
+![Zone Map Example](./test/example_map.png)
 
-### 2. Shielding Calculation (Civil Engineering)
+### 2. Shielding Calculation 
 ```text
 INPUT:
   Source Dose: 100.9 µSv/hr (Hotspot)
@@ -73,7 +73,11 @@ INPUT:
   Material:    Concrete (Density ~2.35 g/cm3)
 
 OUTPUT:
-  Required Thickness: 35.4 cm
+  Thickness(cm)
+  Concrete    35.39
+  Steel       17.69
+  Lead        9.65
+
   Action: Construct 40cm shielding wall or restrict access.
 ```
 
