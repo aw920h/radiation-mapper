@@ -105,7 +105,7 @@ streamlit run app.py
 
 **2. Harvest Real Validation Data**
 ```bash
-python fetch_big_data.py
+python bigdata.py
 # This pulls live data from Fukushima to test the system
 ```
 
