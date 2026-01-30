@@ -9,7 +9,7 @@
 
 ---
 
-## 📋 Project Overview
+## Project Overview
 
 This tool automates the workflow between **Radiation Safety (HSE)** and **Civil Engineering (SMB)**. It processes raw detector data, classifies hazardous zones according to **CERN Safety Code F**, and calculates required concrete shielding thicknesses for facility remediation.
 
