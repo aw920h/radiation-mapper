@@ -60,7 +60,7 @@ The tool successfully identified and classified real-world "Restricted Areas" (>
 
 ---
 
-## 📊 Sample Output Examples
+## Sample Output Examples
 
 ### 1. Radiation Zone Map (Simulated Beamline)
 ![Zone Map Example](./test/example_map.png)
