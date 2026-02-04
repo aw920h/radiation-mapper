@@ -106,8 +106,8 @@ with st.sidebar:
 
     st.markdown("---")
     
-    # CIVIL ENGINEERING CALCULATOR (SIDEBAR)
-    st.subheader("🛡️ Quick Shielding Calc")
+    # CIVIL ENGINEERING CALCULATOR 
+    st.subheader("Quick Shielding Calc")
     st.info("Calculate wall thickness to declassify a hotspot.")
     
     calc_dose = st.number_input("Source Dose (µSv/hr)", value=50.0, step=10.0)
@@ -127,7 +127,7 @@ with st.sidebar:
 col1, col2 = st.columns([2, 1])
 
 with col1:
-    st.header("📊 Data Input & Analysis")
+    st.header("Data Input & Analysis")
     
     measurements_df = None
     
@@ -152,7 +152,7 @@ with col1:
         )
         if st.button("Generate Sample Data"):
             measurements_df = create_sample_data(scenario=scenario)
-            st.success(f"✅ Generated {len(measurements_df)} points")
+            st.success(f" Generated {len(measurements_df)} points")
             
     else: # Manual
         num_points = st.number_input("Points", 3, 50, 5)
@@ -170,7 +170,7 @@ with col1:
         if st.button("Plot Manual Data"):
             measurements_df = pd.DataFrame(manual_data)
 
-    # 2. GENERATE MAP
+    # 2. MAP
     if measurements_df is not None and len(measurements_df) >= 3:
         mapper = RadiationZoneMapper(standard="CERN")
         
@@ -190,13 +190,13 @@ with col1:
             fig.savefig(buf, format='png', dpi=300, bbox_inches='tight')
             buf.seek(0)
             
-            st.download_button("📥 Download Map (High-Res PNG)", buf, "radiation_map.png", "image/png")
+            st.download_button("Download Map (High-Res PNG)", buf, "radiation_map.png", "image/png")
 
 with col2:
-    st.header("🏗️ Engineering Report")
+    st.header("Engineering Report")
     
     if measurements_df is not None:
-        # ZONE STATISTICS
+        # Zone Stats
         max_dose = measurements_df['dose_rate'].max()
         
         st.subheader("Zone Classification")
@@ -212,9 +212,9 @@ with col2:
         st.bar_chart(pd.Series(zones))
         
         
-        st.subheader("🌍 Environmental Boundary")
+        st.subheader("Environmental Boundary")
         
-        # check if max dose at the "edges" of the surveyed area is safe
+        # if max dose at the "edges" of the surveyed area is safe
         x_min, x_max = measurements_df['x'].min(), measurements_df['x'].max()
         y_min, y_max = measurements_df['y'].min(), measurements_df['y'].max()
         
@@ -230,10 +230,10 @@ with col2:
         if max_boundary_dose > 0.5:
             st.markdown(f'<div class="danger-box">⚠️ <b>LEAKAGE DETECTED</b><br>Max dose at boundary: {max_boundary_dose:.2f} µSv/hr<br>Exceeds Public Limit (0.5 µSv/hr)</div>', unsafe_allow_html=True)
         else:
-            st.markdown('<div class="eng-box">✅ <b>CONTAINMENT SECURE</b><br>Boundary levels within Public Limit.</div>', unsafe_allow_html=True)
+            st.markdown('<div class="eng-box"><b>CONTAINMENT SECURE</b><br>Boundary levels within Public Limit.</div>', unsafe_allow_html=True)
 
         
-        st.subheader("📋 Required Controls")
+        st.subheader(" Required Controls")
         if zones["Restricted (>25)"] > 0:
             st.error("🔴 Physical Barriers & Interlocks Required")
         elif zones["Controlled (7.5-25)"] > 0:
@@ -244,7 +244,7 @@ with col2:
 
 if measurements_df is not None:
     st.markdown("---")
-    st.header("📐 Civil Engineering Remediation Plan")
+    st.header("Civil Engineering Remediation Plan")
     
     c1, c2 = st.columns(2)
     
@@ -252,7 +252,7 @@ if measurements_df is not None:
         st.markdown("**Compliance Report**")
         report_text = mapper.generate_compliance_report(measurements_df, area_name="Survey Area")
         st.text_area("Full Text Report", report_text, height=250)
-        st.download_button("📥 Download Report (TXT)", report_text, "report.txt")
+        st.download_button("Download Report (TXT)", report_text, "report.txt")
         
     with c2:
         st.markdown("**Shielding Design Calculator**")
@@ -273,4 +273,4 @@ if measurements_df is not None:
         st.caption(f"Calculated using linear attenuation for Gamma radiation. Safety factor not included.")
 
 else:
-    st.info("👆 Please load data to view Engineering Analysis")
+    st.info("Please load data to view Engineering Analysis")
