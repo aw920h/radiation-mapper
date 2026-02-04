@@ -2,9 +2,6 @@
 Radiation Zone Mapping and Visualization Tool
 For particle accelerator facilities and research laboratories
 
-Author: Shivang
-Date: January 2026
-
 This tool automates radiation zone classification according to CERN Safety Code F
 and IAEA Basic Safety Standards (BSS).
 """
