@@ -50,7 +50,7 @@ To ensure robustness, the engine was stress-tested against two distinct radiolog
 *   **Objective:** Map dose gradients along a beamline without generating artificial "ringing" or negative dose artifacts common in cubic spline methods.
 *   **Result:** Successfully identified the **Supervised Area** boundary at 35m from the beam dump with 0% interpolation overshoot.
 
-![LHC Tunnel Simulation Result](../result/tunnel_map.png)
+![LHC Tunnel Simulation Result](./result/tunnel_map.png)
 *(Fig 2. Interpolated dose map of a tunnel segment showing zone classification contours. Source intensities scaled for demonstration; full-facility modeling requires Monte Carlo transport codes.)*
 
 ### Case B: Chernobyl Exclusion Zone 
