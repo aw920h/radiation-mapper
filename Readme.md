@@ -51,7 +51,7 @@ To ensure robustness, the engine was stress-tested against two distinct radiolog
 *   **Result:** Successfully identified the **Supervised Area** boundary at 35m from the beam dump with 0% interpolation overshoot.
 
 ![LHC Tunnel Simulation Result](./result/tunnel_map.png)
-*(Fig 2. Interpolated dose map of a tunnel segment showing zone classification contours. Source intensities scaled for demonstration; full-facility modeling requires Monte Carlo transport codes.)*
+*Fig 1. Interpolated dose map of a tunnel segment showing zone classification contours. Source intensities scaled for demonstration; full-facility modeling requires Monte Carlo transport codes.*
 
 ### Case B: Chernobyl Exclusion Zone 
 *   **Topology:** Scattered environmental hotspots.
@@ -60,7 +60,7 @@ To ensure robustness, the engine was stress-tested against two distinct radiolog
 *   **Result:** Correctly isolated 3 distinct hotspots ($> 25 \mu\text{Sv/h}$) and generated a "Restricted" zone contour map consistent with $1/r^2$ decay physics.
 
 ![Radiation Map](./result/chernobyl_map.png)
-*(Fig 1. Interpolated dose map of Chernobyl Exclusion Zoneshowing zone classification contours.)*
+*Fig 2. Interpolated dose map of Chernobyl Exclusion Zone showing zone classification contours.*
 
 ---
 
