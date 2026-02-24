@@ -17,7 +17,7 @@ This framework automates the workflow by:
 1.  **Context-Aware Interpolation:** Utilizing **Inverse Distance Weighting (IDW)** and **Clough-Tocher scheme** for point-source hotspots (mimicking $1/r^2$ physics) and **Linear Barycentric Triangulation** for long-geometry accelerator tunnels.
 2.  **Regulatory Compliance:** Auto-classifying zones based on **CERN Safety Code F** and **IAEA Basic Safety Standards**.
 3.  **Shielding Remediation:** Calculating the required physical barrier thickness ($x$) for concrete, steel, lead, high-density
-polyethylene (HDPE) and materials like Bentonite Slurry or soil  of $\rho$ = 1.80 using a deterministic **Linear Attenuation Model**.
+polyethylene (HDPE) and materials like Bentonite Slurry or Compacted Earth/Soil ($\rho$ = 1.80) using a deterministic **Linear Attenuation Model**.
 
 ---
 
@@ -26,7 +26,7 @@ polyethylene (HDPE) and materials like Bentonite Slurry or soil  of $\rho$ = 1.8
 *   **Multi-Model Interpolation:**
     *   **IDW (Inverse Distance Weighting):** Deterministic hotspot mapping for beam targets and scattered sources.
     *   **Linear/Barycentric:** Artifact-free mapping for long tunnels and corridors (prevents "overshooting" negative values).
-    *   **Clough-Tocher (Cubic):** continuous surface reconstruction for visualizing smooth dose gradients and soft transitions in dense survey datasets.
+    *   **Clough-Tocher (Cubic):** $C^1$ continuous surface reconstruction for visualizing smooth dose gradients and soft transitions in dense survey datasets.
 *   **Dynamic Zoning:** Instantly segments areas into *Public*, *Supervised*, *Controlled*, and *Restricted* zones.
 *   **Deterministic Shielding:** Solves the **Beer-Lambert Law** for identified hotspots to determine necessary wall thickness.
 *   **Extended Material Library:** Includes attenuation coefficients ($\mu$) for:
@@ -55,7 +55,7 @@ To ensure robustness, the engine was stress-tested against two distinct radiolog
 
 ### Case B: Chernobyl Exclusion Zone 
 *   **Topology:** Scattered environmental hotspots.
-*   **Method:** **Inverse Distance Weighting (IDW)** ($p=2$).
+*   **Method:** **Inverse Distance Weighting (IDW)** ($p=2$, k-Nearest Neighbors).
 *   **Objective:** Resolve discrete contamination points in a high-noise environment.
 *   **Result:** Correctly isolated 3 distinct hotspots ($> 25 \mu\text{Sv/h}$) and generated a "Restricted" zone contour map consistent with $1/r^2$ decay physics.
 
@@ -97,7 +97,7 @@ Where $\mu(E)$ is the energy-dependent linear attenuation coefficient sourced fr
 
 ### Prerequisites
 *   Python 3.8+
-*   **SciPy** (Spatial interpolation: `cdist`, `griddata`)
+*   **SciPy** (Spatial interpolation: `cdist`, `griddata`, `cKDTree`)
 *   **Pandas** (Data manipulation)
 *   **Streamlit** (Visualization Dashboard)
 
