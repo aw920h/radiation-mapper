@@ -7,6 +7,7 @@
 ![Engineering](https://img.shields.io/badge/Engineering-Civil_%26_Environmental-orange)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://radiation-mapper.streamlit.app/)
 ---
 
 ## 1. Overview
@@ -94,6 +95,15 @@ Where $\mu(E)$ is the energy-dependent linear attenuation coefficient sourced fr
 ---
 
 ## 5. Usage
+
+### Interactive Demo
+
+**The easiest way to explore the engine is through the live web application:**
+
+### [**Launch Interactive Dashboard**](https://radiation-mapper.streamlit.app/)
+
+### Local Installation
+For users who wish to run the code locally
 
 ### Prerequisites
 *   Python 3.8+
